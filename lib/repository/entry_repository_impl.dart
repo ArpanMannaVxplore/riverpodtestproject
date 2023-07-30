@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final entryRepositoryProvider = Provider((_) => EntryRepository());
+// final entryRepositoryProvider = Provider((_) => EntryRepository());
 
 class EntryRepository {
+  final entryRepositoryProvider = Provider((_) => EntryRepository());
+
   final List<String> _entries = [];
 
   Future addEntry(String entry) async {

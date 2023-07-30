@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpodtestproject/pages/screens/first_screen.dart';
-import 'package:riverpodtestproject/repository/entry_repository.dart';
+import 'package:riverpodtestproject/repository/entry_repository_impl.dart';
+import 'package:riverpodtestproject/service/locator.dart';
 import 'package:riverpodtestproject/service/navigation_service.dart';
 import 'package:get_it/get_it.dart';
 void main() {
-  GetIt.instance.registerSingleton<EntryRepository>(EntryRepository());
+ locator();
   runApp(const ProviderScope(child: MyApp()));
 }
 

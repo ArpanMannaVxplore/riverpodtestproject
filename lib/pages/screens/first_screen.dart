@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
-import 'package:riverpodtestproject/repository/entry_repository.dart';
+import 'package:riverpodtestproject/repository/entry_repository_impl.dart';
+import 'package:riverpodtestproject/service/locator.dart';
 
 import '../view model/first_screen_view_model.dart';
 
@@ -18,7 +19,7 @@ class FirstScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    EntryRepository myDependency = GetIt.instance<EntryRepository>();
+   var depenedebcy = getIt<EntryRepository>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Entries Management page 1'),
