@@ -22,10 +22,34 @@ class NavigationService {
 
   /// This allows you to naviagte to the next screen by passing the screen widget
   Future<dynamic> navigateToScreen(Widget page, {arguments}) async => navigationKey.currentState?.push(
-    MaterialPageRoute(
-      builder: (_) => page,
+    // MaterialPageRoute(
+    //   builder: (_) => page,
+    // ),
+    PageRouteBuilder(
+      transitionsBuilder:
+          (context, animation, secondaryAnimation, child) {
+        return
+          ScaleTransition(
+          alignment: Alignment.center,
+          scale:
+          Tween<double>(begin: 0.1, end: 1).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeIn,
+            ),
+          ),
+          child: child,
+        );
+      },
+      transitionDuration: Duration(milliseconds: 300),
+      pageBuilder: (BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        return page;
+      },
     ),
   );
+
 
   /// This allows you to naviagte to the next screen and
   /// also replace the current screen by passing the screen widget
